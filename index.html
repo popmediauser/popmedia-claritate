@@ -3,8 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pop Media - Radio și promovare pentru românii din Belgia</title>
-  <meta name="description" content="Radio, podcasturi și evenimente pentru românii din Belgia. Pop Media ajută afacerile să fie vizibile prin promovare în limba română.">
+  <title>Pop Media - Vocea Afacerii Locale pentru Belgia</title>
+  <meta name="description" content="Radio, podcasturi și evenimente pentru românii din Belgia. Vocea Afacerii Locale transformă promovarea în poveste audio, pagină QR și raport simplu.">
+  <meta property="og:title" content="Pop Media - Vocea Afacerii Locale pentru Belgia">
+  <meta property="og:description" content="Promovare în limba română prin poveste audio, pagină QR, social media și raport simplu pentru afaceri din Belgia.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ro_RO">
   <style>
     :root {
       --bg: #03080c;
@@ -542,9 +546,31 @@
 
     .package-layout {
       display: grid;
-      grid-template-columns: .88fr 1.55fr;
+      grid-template-columns: .78fr 1.62fr;
       gap: 64px;
-      align-items: center;
+      align-items: start;
+    }
+
+    .product-name {
+      display: block;
+      color: var(--yellow);
+    }
+
+    .product-note {
+      margin-top: 30px;
+      padding: 22px 0 0 24px;
+      border-top: 1px solid rgba(255,255,255,.16);
+      border-left: 5px solid var(--red);
+      color: rgba(255,248,235,.84);
+      font-family: var(--font-display);
+      font-size: clamp(21px, 2vw, 29px);
+      line-height: 1.08;
+      text-transform: uppercase;
+    }
+
+    .product-system {
+      display: grid;
+      gap: 28px;
     }
 
     .package-grid {
@@ -558,6 +584,9 @@
       min-height: 355px;
       padding: 30px 28px;
       border-right: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.048), rgba(255,255,255,.012)),
+        rgba(3,8,12,.18);
     }
 
     .package .icon {
@@ -571,6 +600,92 @@
     .package p {
       margin: 6px 0 24px;
       color: var(--muted);
+    }
+
+    .product-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.025);
+    }
+
+    .pilot-offer {
+      display: grid;
+      grid-template-columns: .92fr 1.05fr 1fr;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(244,37,31,.12), rgba(28,121,255,.08)),
+        rgba(3,8,12,.42);
+    }
+
+    .pilot-panel {
+      min-height: 230px;
+      padding: 26px 24px;
+      border-right: 1px solid var(--line);
+    }
+
+    .pilot-panel:last-child {
+      border-right: 0;
+    }
+
+    .pilot-panel > span {
+      display: block;
+      color: var(--yellow);
+      font-family: var(--font-display);
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    .pilot-panel h3 {
+      max-width: 280px;
+      margin-top: 34px;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .pilot-panel p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .pilot-panel .checks {
+      margin-top: 34px;
+      font-size: 15px;
+    }
+
+    .flow-step {
+      min-height: 118px;
+      padding: 22px 22px 20px;
+      border-right: 1px solid var(--line);
+    }
+
+    .flow-step:last-child { border-right: 0; }
+
+    .flow-step span {
+      display: block;
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-size: 17px;
+      text-transform: uppercase;
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 27px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .flow-step p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
     }
 
     .checks {
@@ -598,6 +713,104 @@
       border-left: 2px solid currentColor;
       border-bottom: 2px solid currentColor;
       transform: rotate(-45deg);
+    }
+
+    .proof {
+      padding-top: clamp(56px, 6vw, 84px);
+      padding-bottom: clamp(56px, 6vw, 84px);
+      background:
+        radial-gradient(circle at 12% 20%, rgba(244,37,31,.14), transparent 24rem),
+        radial-gradient(circle at 88% 70%, rgba(28,121,255,.12), transparent 26rem),
+        #04090d;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .proof-layout {
+      display: grid;
+      grid-template-columns: .88fr 1.5fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .proof-copy h2 {
+      font-size: clamp(46px, 4.7vw, 72px);
+      line-height: .95;
+    }
+
+    .proof-copy p {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.58;
+    }
+
+    .channel-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .channel-links a,
+    .socials a {
+      color: inherit;
+    }
+
+    .channel-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid rgba(255,255,255,.28);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 15px;
+      text-transform: uppercase;
+      transition: border-color .18s ease, color .18s ease, transform .18s ease;
+    }
+
+    .channel-link:hover,
+    .channel-link:focus-visible {
+      color: var(--yellow);
+      border-color: var(--yellow);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-left: 1px solid var(--line);
+      border-top: 1px solid var(--line);
+      background: rgba(255,255,255,.022);
+    }
+
+    .proof-card {
+      min-height: 185px;
+      padding: 26px 22px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proof-card span {
+      display: block;
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    .proof-card h3 {
+      margin-top: 38px;
+      font-size: 31px;
+      line-height: 1;
+    }
+
+    .proof-card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
     }
 
     .contact {
@@ -686,6 +899,17 @@
       text-transform: uppercase;
     }
 
+    .contact-list .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+    }
+
+    .contact-list .socials a {
+      display: inline-flex;
+      margin-top: 0;
+    }
+
     footer {
       padding: 26px 20px;
       background: #020508;
@@ -713,12 +937,36 @@
       .service { border-bottom: 1px solid var(--line); }
       .story-layout,
       .package-layout,
+      .proof-layout,
       .contact-layout {
         grid-template-columns: 1fr;
+      }
+      .proof-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .package-grid {
         grid-template-columns: 1fr;
         border-left: 0;
+      }
+      .product-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .pilot-offer {
+        grid-template-columns: 1fr;
+      }
+      .pilot-panel {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .pilot-panel:last-child {
+        border-bottom: 0;
+      }
+      .flow-step:nth-child(2) {
+        border-right: 0;
+      }
+      .flow-step:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line);
       }
       .package {
         min-height: auto;
@@ -855,6 +1103,42 @@
         min-height: 360px;
       }
 
+      .product-note {
+        padding-left: 18px;
+      }
+
+      .product-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .pilot-panel h3 {
+        margin-top: 24px;
+        font-size: 31px;
+      }
+
+      .pilot-panel .checks {
+        margin-top: 24px;
+      }
+
+      .proof-grid {
+        grid-template-columns: 1fr;
+        border-left: 0;
+      }
+
+      .proof-card {
+        min-height: 165px;
+        border-right: 0;
+      }
+
+      .flow-step,
+      .flow-step:nth-child(2) {
+        border-right: 0;
+      }
+
+      .flow-step:nth-child(-n + 3) {
+        border-bottom: 1px solid var(--line);
+      }
+
       .contact-layout {
         gap: 44px;
       }
@@ -937,17 +1221,17 @@
     <a class="brand" href="#top" aria-label="Pop Media">
       <span class="mark" aria-hidden="true">POP<br>MEDIA</span>
       <span class="brand-line" aria-hidden="true"></span>
-      <span class="brand-note">Radio. Podcasts. Evenimente. Promovare în română.</span>
+      <span class="brand-note">Radio. Podcasts. Evenimente. Vocea afacerilor locale.</span>
     </a>
     <div class="links" aria-label="Secțiuni">
       <a href="#top">Acasă</a>
       <a href="#radio">Radio</a>
       <a href="#podcasts">Podcasts</a>
       <a href="#evenimente">Evenimente</a>
-      <a href="#sponsori">Sponsori</a>
+      <a href="#sponsori">Afaceri</a>
       <a href="#contact">Contact</a>
     </div>
-    <a class="button nav-cta" href="mailto:contact@popmedia.be?subject=Promovare%20Pop%20Media">Promovare</a>
+    <a class="button nav-cta" href="mailto:contact@popmedia.be?subject=Vocea%20Afacerii%20Locale">Cere pachetul</a>
   </nav>
 
   <main id="top">
@@ -956,9 +1240,9 @@
         <div class="hero-inner">
           <div class="hero-copy">
             <h1>Vocea românilor în Belgia</h1>
-            <p>Radio, podcasturi și evenimente pentru românii din Belgia. Pentru afaceri, Pop Media creează promovare în limba română, într-un context de comunitate și încredere.</p>
+            <p>Radio, podcasturi și evenimente pentru românii din Belgia. Pentru afaceri, Pop Media transformă promovarea într-o poveste audio, ușor de distribuit și de ținut minte.</p>
             <div class="hero-actions">
-              <a class="button primary" href="mailto:contact@popmedia.be?subject=Vreau%20promovare%20Pop%20Media">Vreau promovare</a>
+              <a class="button primary" href="mailto:contact@popmedia.be?subject=Vocea%20Afacerii%20Locale">Cere pachetul</a>
               <a class="button" href="#radio">Vezi ce facem</a>
             </div>
           </div>
@@ -1007,12 +1291,12 @@
           <article class="service" style="--accent: var(--yellow)">
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 13h3l9 4V7L7 11H4v2Zm12-5 3-2v12l-3-2M7 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h3>Promovare</h3>
-            <p>Dăm voce brandului tău prin radio, social media și conținut dedicat.</p>
+            <p>Transformăm mesajul afacerii tale în audio, social media și conținut ușor de distribuit.</p>
           </article>
           <article class="service" style="--accent: var(--red)">
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3 20a5 5 0 0 1 10 0m-2.5-2.5A5 5 0 0 1 21 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <h3>Comunitate</h3>
-            <p>Suntem împreună, ne susținem și creștem împreună.</p>
+            <p>Construim contexte în care oamenii descoperă servicii, evenimente și povești locale.</p>
           </article>
         </div>
       </div>
@@ -1046,43 +1330,130 @@
     <section id="sponsori" class="packages" aria-labelledby="sponsors-title">
       <div class="inner package-layout">
         <div class="packages-copy">
-          <h2 id="sponsors-title">Susținem afacerile care construiesc <span class="yellow">comunitatea</span></h2>
-          <p>Pachete de promovare flexibile pentru afacerea ta. Alegem împreună ce se potrivește obiectivelor tale.</p>
-          <div class="hero-actions"><a class="button" href="#contact">Vezi pachetele +</a></div>
+          <h2 id="sponsors-title">Vocea <span class="product-name">Afacerii Locale</span></h2>
+          <p>Un pachet de promovare în limba română pentru afaceri din Belgia: poveste audio, pagină QR, social media și raport simplu după campanie.</p>
+          <p class="product-note">Nu cumperi doar o postare. Primești o poveste, o voce și un link clar pe care îl poți trimite mai departe.</p>
+          <div class="hero-actions"><a class="button" href="#contact">Cere pachetul +</a></div>
         </div>
-        <div class="package-grid">
-          <article class="package" style="--accent: var(--red)">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4V7Zm2 3h8m-8 4h4m8-4h.01m0 4h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <h3>Basic</h3>
-            <p>Prezență locală</p>
-            <ul class="checks">
-              <li>Spoturi radio</li>
-              <li>Menționare în emisiuni</li>
-              <li>Postare social media</li>
-              <li>Raportare lunară</li>
-            </ul>
+        <div class="product-system">
+          <div class="package-grid">
+            <article class="package" style="--accent: var(--red)">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4Zm0 0v5m-4 0h8m-10-9a6 6 0 0 0 12 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <h3>Poveste audio</h3>
+              <p>Vocea care explică afacerea</p>
+              <ul class="checks">
+                <li>Brief de 20 minute</li>
+                <li>Interviu sau story</li>
+                <li>Spot audio scurt</li>
+                <li>Mesaj aprobat</li>
+              </ul>
+            </article>
+            <article class="package" style="--accent: var(--yellow)">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4V7Zm2 3h8m-8 4h4m8-4h.01m0 4h.01M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <h3>Pagina QR</h3>
+              <p>Un link clar de trimis mai departe</p>
+              <ul class="checks">
+                <li>Prezentare în română</li>
+                <li>Audio și ofertă</li>
+                <li>Contact direct</li>
+                <li>Marcaj publicitate</li>
+              </ul>
+            </article>
+            <article class="package" style="--accent: var(--blue)">
+              <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 16V9m4 7V7m4 9v-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <h3>Raport simplu</h3>
+              <p>Rezultate explicate pe înțeles</p>
+              <ul class="checks">
+                <li>Vizite pe pagină</li>
+                <li>Clickuri contact</li>
+                <li>Reach social</li>
+                <li>Feedback sponsor</li>
+              </ul>
+            </article>
+          </div>
+          <div class="product-flow" aria-label="Cum funcționează Vocea Afacerii Locale">
+            <div class="flow-step" style="--accent: var(--red)">
+              <span>01</span>
+              <strong>Mesaj</strong>
+              <p>Clarificăm ce oferi și cui te adresezi.</p>
+            </div>
+            <div class="flow-step" style="--accent: var(--yellow)">
+              <span>02</span>
+              <strong>Voce</strong>
+              <p>Construim povestea audio și spotul scurt.</p>
+            </div>
+            <div class="flow-step" style="--accent: var(--blue)">
+              <span>03</span>
+              <strong>Distribuire</strong>
+              <p>Publicăm pagina QR și conținutul social.</p>
+            </div>
+            <div class="flow-step" style="--accent: var(--red)">
+              <span>04</span>
+              <strong>Raport</strong>
+              <p>Trimitem cifrele simple după campanie.</p>
+            </div>
+          </div>
+          <div class="pilot-offer" aria-label="Pachet pilot pentru primul client">
+            <div class="pilot-panel">
+              <span>Pachet pilot</span>
+              <h3>Prima campanie, clară de la început</h3>
+              <p>O variantă scurtă pentru primul client: suficient de concretă ca să se vadă valoarea, dar simplă de livrat și de repetat.</p>
+            </div>
+            <div class="pilot-panel">
+              <span>Clientul primește</span>
+              <ul class="checks">
+                <li>Interviu scurt sau poveste audio</li>
+                <li>Clip/reel pentru social media</li>
+                <li>Postare publicată pe canalul potrivit</li>
+                <li>Link sau QR către ofertă și contact</li>
+              </ul>
+            </div>
+            <div class="pilot-panel">
+              <span>Clientul trimite</span>
+              <ul class="checks">
+                <li>Logo, poză și date de contact</li>
+                <li>Oferta principală pentru comunitate</li>
+                <li>Orașul sau regiunea vizată</li>
+                <li>Aprobare înainte de publicare</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof" aria-labelledby="proof-title">
+      <div class="inner proof-layout">
+        <div class="proof-copy">
+          <h2 id="proof-title">Canale și <span class="red">dovadă</span></h2>
+          <p>Campaniile trăiesc pe social media, unde oamenii văd, distribuie și interacționează. Site-ul rămâne locul curat unde prezentăm produsul, canalele oficiale și rezultatele confirmate.</p>
+          <div class="channel-links" aria-label="Canale Radio Belgia">
+            <a class="channel-link" href="https://www.facebook.com/profile.php?id=61569371961652" target="_blank" rel="noopener">Facebook</a>
+            <a class="channel-link" href="https://www.instagram.com/radiobelgia/" target="_blank" rel="noopener">Instagram</a>
+            <a class="channel-link" href="https://www.youtube.com/@RadioBelgia" target="_blank" rel="noopener">YouTube</a>
+            <a class="channel-link" href="https://www.tiktok.com/@radio.belgia" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+        <div class="proof-grid">
+          <article class="proof-card" style="--accent: var(--red)">
+            <span>Social</span>
+            <h3>Postare sau reel</h3>
+            <p>Conținut aprobat, publicat pe canalul potrivit și ușor de distribuit.</p>
           </article>
-          <article class="package" style="--accent: var(--yellow)">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4Zm0 0v5m-4 0h8m-10-9a6 6 0 0 0 12 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <h3>Plus</h3>
-            <p>Vizibilitate extinsă</p>
-            <ul class="checks">
-              <li>Spoturi radio premium</li>
-              <li>Interviu în emisiune</li>
-              <li>Postări social media</li>
-              <li>Promovare evenimente</li>
-            </ul>
+          <article class="proof-card" style="--accent: var(--yellow)">
+            <span>Audio</span>
+            <h3>Spot sau poveste</h3>
+            <p>Voce scurtă, clară și potrivită pentru comunitatea românească.</p>
           </article>
-          <article class="package" style="--accent: var(--blue)">
-            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m12 3 8 6-8 12L4 9l8-6Zm-8 6h16M8 9l4 12 4-12M8 9l4-6 4 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <h3>Premium</h3>
-            <p>Parteneriat strategic</p>
-            <ul class="checks">
-              <li>Campanii radio dedicate</li>
-              <li>Podcast sponsorizat</li>
-              <li>Conținut personalizat</li>
-              <li>Raportare și analiză</li>
-            </ul>
+          <article class="proof-card" style="--accent: var(--blue)">
+            <span>Link</span>
+            <h3>QR / WhatsApp</h3>
+            <p>O cale simplă spre ofertă, contact sau postarea publică.</p>
+          </article>
+          <article class="proof-card" style="--accent: var(--red)">
+            <span>Recap</span>
+            <h3>Cifre reale</h3>
+            <p>Reach, clickuri, vizite și feedback, adăugate doar după verificare.</p>
           </article>
         </div>
       </div>
@@ -1091,9 +1462,9 @@
     <section id="contact" class="contact" aria-labelledby="contact-title">
       <div class="inner contact-layout">
         <div class="contact-copy">
-          <h2 id="contact-title">Hai să creăm <span class="red">ceva împreună</span></h2>
-          <p>Ai un proiect, o idee sau vrei să-ți promovezi afacerea? Hai să vorbim și să găsim cea mai bună soluție pentru tine.</p>
-          <div class="hero-actions"><a class="button primary" href="mailto:contact@popmedia.be?subject=Contact%20Pop%20Media">Contactează-ne</a></div>
+          <h2 id="contact-title">Cere pachetul <span class="red">local</span></h2>
+          <p>Scrie-ne ce vrei să promovezi, în ce oraș sau regiune activezi și ce rezultat îți dorești. Îți răspundem cu o propunere simplă.</p>
+          <div class="hero-actions"><a class="button primary" href="mailto:contact@popmedia.be?subject=Vocea%20Afacerii%20Locale">Cere pachetul</a></div>
         </div>
         <ul class="contact-list">
           <li>
@@ -1110,7 +1481,7 @@
           </li>
           <li>
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m21 3-7 18-4-8-7-4 18-6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <div><strong>Urmărește-ne</strong><span class="socials">f ig yt tk</span></div>
+            <div><strong>Urmărește-ne</strong><span class="socials"><a href="https://www.facebook.com/profile.php?id=61569371961652" target="_blank" rel="noopener">fb</a> <a href="https://www.instagram.com/radiobelgia/" target="_blank" rel="noopener">ig</a> <a href="https://www.youtube.com/@RadioBelgia" target="_blank" rel="noopener">yt</a> <a href="https://www.tiktok.com/@radio.belgia" target="_blank" rel="noopener">tk</a></span></div>
           </li>
         </ul>
       </div>
@@ -1119,8 +1490,8 @@
 
   <footer>
     <div class="inner">
-      <span>Pop Media - homepage reconstruit ca site real</span>
-      <span>Static demo, fără backend sau integrare live.</span>
+      <span>Pop Media - radio, podcasturi, evenimente și promovare în română.</span>
+      <span>Pentru românii din Belgia și afacerile care vor să fie înțelese.</span>
     </div>
   </footer>
 

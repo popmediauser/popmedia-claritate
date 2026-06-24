@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pachet Promo Local Pop Media - Ofertă Pilot</title>
+  <meta name="description" content="Ofertă pilot Pop Media pentru promovarea afacerilor românești din Belgia prin audio, social media și raport simplu.">
+  <style>
+    :root {
+      --ink: #fff8eb;
+      --muted: rgba(255, 248, 235, .74);
+      --paper: #eee3d2;
+      --black: #101214;
+      --bg: #03080c;
+      --red: #f4251f;
+      --yellow: #ffc52d;
+      --blue: #1c79ff;
+      --line: rgba(255, 255, 255, .16);
+      --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", "Roboto Condensed", "Arial Narrow", sans-serif;
+      --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #101214;
+      color: var(--ink);
+      font-family: var(--font-ui);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .sheet {
+      width: min(100%, 980px);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 44px;
+      background:
+        linear-gradient(90deg, rgba(3,8,12,.95), rgba(3,8,12,.88) 58%, rgba(3,8,12,.72)),
+        url("../assets/popmedia-hero-background.png");
+      background-position: center bottom;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: start;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mark {
+      position: relative;
+      width: 96px;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: .78;
+      text-transform: uppercase;
+    }
+
+    .mark::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 45px;
+      width: 26px;
+      height: 26px;
+      background: var(--red);
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+
+    .brand span,
+    .label {
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-size: 14px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .label {
+      color: var(--yellow);
+      text-align: right;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: .94fr 1.06fr;
+      gap: 42px;
+      padding: 36px 0 30px;
+      align-items: end;
+    }
+
+    h1 {
+      max-width: 480px;
+      font-size: clamp(58px, 7vw, 82px);
+      line-height: .86;
+    }
+
+    .yellow {
+      color: var(--yellow);
+    }
+
+    .red {
+      color: var(--red);
+    }
+
+    .lead {
+      max-width: 430px;
+      color: rgba(255, 248, 235, .86);
+      font-size: 18px;
+      line-height: 1.52;
+    }
+
+    .promise {
+      margin-top: 20px;
+      padding: 18px 0 0 20px;
+      border-top: 1px solid var(--line);
+      border-left: 5px solid var(--red);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 25px;
+      line-height: 1.04;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .panel {
+      min-height: 214px;
+      padding: 22px 20px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(3,8,12,.58);
+    }
+
+    .panel > span {
+      display: block;
+      color: var(--accent, var(--yellow));
+      font-family: var(--font-display);
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .panel h2 {
+      margin-top: 26px;
+      font-size: 29px;
+      line-height: 1;
+    }
+
+    ul,
+    ol {
+      display: grid;
+      gap: 8px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 7px;
+      align-items: start;
+    }
+
+    li::before {
+      content: "";
+      width: 10px;
+      height: 6px;
+      margin-top: 6px;
+      border-left: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg);
+    }
+
+    .steps {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.025);
+    }
+
+    .step {
+      min-height: 112px;
+      padding: 18px 16px;
+      border-right: 1px solid var(--line);
+    }
+
+    .step:last-child {
+      border-right: 0;
+    }
+
+    .step span {
+      color: var(--accent, var(--red));
+      font-family: var(--font-display);
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .step strong {
+      display: block;
+      margin-top: 10px;
+      font-family: var(--font-display);
+      font-size: 22px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .step p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .bottom {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: end;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .note {
+      color: rgba(255, 248, 235, .7);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .cta {
+      display: grid;
+      gap: 8px;
+      min-width: 280px;
+      padding: 20px;
+      background: var(--paper);
+      color: var(--black);
+    }
+
+    .cta strong {
+      font-family: var(--font-display);
+      font-size: 24px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .cta span {
+      font-size: 14px;
+      color: rgba(16,18,20,.78);
+    }
+
+    .channels {
+      color: var(--black);
+      font-family: var(--font-display);
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 760px) {
+      .sheet {
+        padding: 28px 18px;
+      }
+
+      .topbar,
+      .hero,
+      .bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .label {
+        text-align: left;
+      }
+
+      .grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .step,
+      .panel {
+        border-right: 0;
+      }
+
+      .cta {
+        min-width: 0;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      html,
+      body {
+        width: 210mm;
+        min-height: 297mm;
+        background: #fff;
+      }
+
+      .sheet {
+        width: 210mm;
+        height: 296mm;
+        min-height: 0;
+        padding: 10mm;
+        overflow: hidden;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: start;
+        padding-bottom: 16px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: .92fr 1.08fr;
+        gap: 20px;
+        padding: 18px 0 16px;
+        align-items: end;
+      }
+
+      .lead {
+        font-size: 15px;
+      }
+
+      .promise {
+        margin-top: 12px;
+        padding-top: 12px;
+        font-size: 20px;
+      }
+
+      .panel {
+        min-height: 164px;
+        padding: 14px 14px;
+        border-right: 1px solid var(--line);
+      }
+
+      .panel:last-child {
+        border-right: 1px solid var(--line);
+      }
+
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .panel h2 {
+        margin-top: 16px;
+        font-size: 22px;
+      }
+
+      ul,
+      ol {
+        margin-top: 12px;
+        gap: 5px;
+        font-size: 12px;
+      }
+
+      .steps {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-top: 12px;
+      }
+
+      .step {
+        min-height: 78px;
+        padding: 12px 12px;
+        border-right: 1px solid var(--line);
+      }
+
+      .step:last-child {
+        border-right: 0;
+      }
+
+      .step strong {
+        margin-top: 6px;
+        font-size: 18px;
+      }
+
+      .step p {
+        margin-top: 5px;
+        font-size: 11px;
+      }
+
+      .bottom {
+        grid-template-columns: 1fr auto;
+        margin-top: 14px;
+        padding-top: 14px;
+        align-items: end;
+      }
+
+      .note {
+        font-size: 11px;
+      }
+
+      .cta {
+        padding: 14px;
+      }
+
+      .cta strong {
+        font-size: 20px;
+      }
+
+      .cta span,
+      .cta a {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark">Pop<br>Media</div>
+        <span>Radio, podcasturi, evenimente<br>și promovare locală</span>
+      </div>
+      <div class="label">Ofertă pilot pentru primul client<br>Români în Belgia</div>
+    </header>
+
+    <section class="hero" aria-label="Prezentare pachet">
+      <div>
+        <h1>Pachet <span class="yellow">Promo Local</span></h1>
+      </div>
+      <div>
+        <p class="lead">O campanie scurtă pentru o afacere românească din Belgia: poveste audio, conținut social media și un recap simplu după publicare.</p>
+        <p class="promise">Nu vindem doar o postare. Construim o poveste clară, ușor de înțeles și de distribuit.</p>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Ce include oferta">
+      <article class="panel" style="--accent: var(--red)">
+        <span>01 / Clientul primește</span>
+        <h2>Conținut gata de publicat</h2>
+        <ul>
+          <li>Interviu scurt sau poveste audio</li>
+          <li>Clip/reel pentru social media</li>
+          <li>Postare pe canalul potrivit</li>
+          <li>Link sau QR către ofertă/contact</li>
+        </ul>
+      </article>
+
+      <article class="panel" style="--accent: var(--yellow)">
+        <span>02 / Avem nevoie de</span>
+        <h2>Materiale simple</h2>
+        <ul>
+          <li>Logo, poză sau video scurt</li>
+          <li>Oferta principală promovată</li>
+          <li>Orașul sau regiunea vizată</li>
+          <li>Aprobare înainte de publicare</li>
+        </ul>
+      </article>
+
+      <article class="panel" style="--accent: var(--blue)">
+        <span>03 / După campanie</span>
+        <h2>Cifre reale, fără promisiuni goale</h2>
+        <ul>
+          <li>Reach și interacțiuni disponibile</li>
+          <li>Clickuri sau vizite, unde se pot măsura</li>
+          <li>Feedback și recomandări pentru pasul următor</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="steps" aria-label="Cum lucrăm">
+      <div class="step" style="--accent: var(--red)">
+        <span>Pasul 1</span>
+        <strong>Brief</strong>
+        <p>Clarificăm oferta, publicul și mesajul principal.</p>
+      </div>
+      <div class="step" style="--accent: var(--yellow)">
+        <span>Pasul 2</span>
+        <strong>Voce</strong>
+        <p>Construim povestea și forma scurtă pentru social.</p>
+      </div>
+      <div class="step" style="--accent: var(--blue)">
+        <span>Pasul 3</span>
+        <strong>Publicare</strong>
+        <p>Publicăm conținutul aprobat și marcăm publicitatea când este cazul.</p>
+      </div>
+      <div class="step" style="--accent: var(--red)">
+        <span>Pasul 4</span>
+        <strong>Recap</strong>
+        <p>Trimitem un rezumat simplu cu ce s-a întâmplat.</p>
+      </div>
+    </section>
+
+    <footer class="bottom">
+      <p class="note">Pachetul pilot este gândit pentru validare rapidă. Rezultatele comerciale nu sunt garantate; raportăm doar date reale, disponibile după publicare. Conținutul sponsorizat se marchează clar ca publicitate, conform regulilor platformelor.</p>
+      <div class="cta">
+        <strong>Următorul pas</strong>
+        <span>Trimite logo, ofertă, oraș/regiune și datele de contact.</span>
+        <a href="mailto:contact@popmedia.be?subject=Pachet%20Promo%20Local%20-%20pilot">contact@popmedia.be</a>
+        <span class="channels">Facebook / Instagram / YouTube / TikTok</span>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
