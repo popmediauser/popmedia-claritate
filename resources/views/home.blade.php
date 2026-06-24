@@ -223,7 +223,7 @@
       position: absolute;
       inset: 0;
       z-index: -3;
-      background-image: url("assets/popmedia-hero-background.png");
+      background-image: url("{{ asset('assets/popmedia/popmedia-hero-background.png') }}");
       background-size: cover;
       background-position: center;
       transform: scale(1.02);
@@ -534,7 +534,7 @@
     .packages {
       background:
         linear-gradient(90deg, rgba(3,8,12,.96) 0%, rgba(3,8,12,.92) 56%, rgba(3,8,12,.72) 100%),
-        url("assets/popmedia-hero-background.png");
+        url("{{ asset('assets/popmedia/popmedia-hero-background.png') }}");
       background-size: cover;
       background-position: center bottom;
       border-top: 1px solid rgba(255,255,255,.08);
@@ -604,7 +604,7 @@
       color: var(--black);
       background:
         linear-gradient(180deg, rgba(232,223,209,.96), rgba(232,223,209,.96)),
-        url("assets/popmedia-hero-background.png");
+        url("{{ asset('assets/popmedia/popmedia-hero-background.png') }}");
       background-size: cover;
       background-position: bottom center;
     }
@@ -1025,17 +1025,17 @@
           <p>De la emisiuni care inspiră, la podcasturi care aduc perspectivă și evenimente care ne aduc față în față.</p>
           <div class="hero-actions"><a class="button" href="#contact">Descoperă conținutul</a></div>
         </div>
-        <article class="story-card" style="--accent: var(--red); --visual: url('assets/card-radio-live.png')">
+        <article class="story-card" style="--accent: var(--red); --visual: url('{{ asset('assets/popmedia/card-radio-live.png') }}')">
           <h3>Radio live</h3>
           <p>Muzică bună și informație de încredere, zi de zi.</p>
           <a href="mailto:contact@popmedia.be?subject=Radio%20live%20Pop%20Media">Ascultă live →</a>
         </article>
-        <article class="story-card" style="--accent: var(--yellow); --visual: url('assets/card-podcasts.png')">
+        <article class="story-card" style="--accent: var(--yellow); --visual: url('{{ asset('assets/popmedia/card-podcasts.png') }}')">
           <h3>Podcasts</h3>
           <p>Discuții autentice despre viață, afaceri, cultură și comunitate.</p>
           <a href="mailto:contact@popmedia.be?subject=Podcasturi%20Pop%20Media">Vezi podcasts →</a>
         </article>
-        <article class="story-card" style="--accent: var(--blue); --visual: url('assets/card-evenimente.png')">
+        <article class="story-card" style="--accent: var(--blue); --visual: url('{{ asset('assets/popmedia/card-evenimente.png') }}')">
           <h3>Evenimente</h3>
           <p>Festivaluri, târguri, întâlniri și momente memorabile.</p>
           <a href="mailto:contact@popmedia.be?subject=Evenimente%20Pop%20Media">Vezi evenimente →</a>
