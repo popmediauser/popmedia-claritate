@@ -3,8 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pop Media - Vocea românilor în Belgia</title>
-  <meta name="description" content="Homepage Pop Media pentru radio, podcasturi, evenimente, sponsori și comunitatea românilor din Belgia.">
+  <title>Pop Media - Radio, comunitate și promovare pentru românii din Belgia</title>
+  <meta name="description" content="Pop Media aduce radio, podcasturi, evenimente și promovare locală pentru românii și afacerile românești din Belgia.">
+  <link rel="canonical" href="https://popmedia-homepage.vercel.app/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2303080c'/%3E%3Cpath d='M9 47 24 10h16l15 37H41l-3-9H26l-3 9H9Zm21-21h4l-2-8-2 8Z' fill='%23f4251f'/%3E%3C/svg%3E">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#03080c">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ro_BE">
+  <meta property="og:site_name" content="Pop Media">
+  <meta property="og:title" content="Pop Media - Radio și promovare locală pentru românii din Belgia">
+  <meta property="og:description" content="Radio, podcasturi, evenimente și campanii de promovare pentru comunitatea românească din Belgia.">
+  <meta property="og:url" content="https://popmedia-homepage.vercel.app/">
+  <meta property="og:image" content="https://popmedia-homepage.vercel.app/assets/popmedia-hero-background.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pop Media - Radio și comunitate în Belgia">
+  <meta name="twitter:description" content="Un punct de întâlnire media pentru români, evenimente și afaceri locale din Belgia.">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://popmedia-homepage.vercel.app/#website",
+          "url": "https://popmedia-homepage.vercel.app/",
+          "name": "Pop Media",
+          "alternateName": "Radio Belgia",
+          "inLanguage": "ro-BE",
+          "description": "Radio, podcasturi, evenimente și promovare locală pentru românii din Belgia."
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://popmedia-homepage.vercel.app/#organization",
+          "name": "Pop Media",
+          "url": "https://popmedia-homepage.vercel.app/",
+          "email": "contact@popmedia.be",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Belgium"
+          }
+        }
+      ]
+    }
+  </script>
   <style>
     :root {
       --bg: #03080c;
@@ -200,7 +241,7 @@
 
     .hero-stage {
       position: relative;
-      min-height: calc(100svh + clamp(420px, 48vh, 620px));
+      min-height: clamp(780px, 88svh, 900px);
       background: var(--bg);
       z-index: 1;
     }
@@ -346,7 +387,7 @@
     }
 
     .hero-stage + section {
-      padding-top: clamp(112px, 11vw, 150px);
+      padding-top: clamp(78px, 8vw, 104px);
     }
 
     .inner {
@@ -419,6 +460,55 @@
       margin: 14px auto 0;
       color: var(--muted);
       font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .proof-strip {
+      padding: clamp(96px, 10vw, 136px) 20px clamp(40px, 5vw, 64px);
+      background:
+        linear-gradient(90deg, rgba(244,37,31,.08), rgba(255,197,45,.055), rgba(28,121,255,.08)),
+        #03080c;
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.025);
+    }
+
+    .proof-item {
+      min-height: 150px;
+      padding: 26px;
+      border-right: 1px solid var(--line);
+    }
+
+    .proof-item:last-child { border-right: 0; }
+
+    .proof-item span,
+    .eyebrow {
+      display: inline-block;
+      color: var(--yellow);
+      font-family: var(--font-display);
+      font-size: 14px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .proof-item strong {
+      display: block;
+      margin-top: 12px;
+      font-family: var(--font-display);
+      font-size: clamp(25px, 2.5vw, 36px);
+      line-height: .96;
+      text-transform: uppercase;
+    }
+
+    .proof-item p {
+      margin: 12px 0 0;
+      color: var(--muted);
       line-height: 1.5;
     }
 
@@ -573,6 +663,25 @@
       color: var(--muted);
     }
 
+    .verticals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .verticals li {
+      padding: 8px 11px;
+      border: 1px solid rgba(255,255,255,.22);
+      color: rgba(255,248,235,.82);
+      font-family: var(--font-display);
+      font-size: 13px;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.035);
+    }
+
     .checks {
       display: grid;
       gap: 12px;
@@ -598,6 +707,69 @@
       border-left: 2px solid currentColor;
       border-bottom: 2px solid currentColor;
       transform: rotate(-45deg);
+    }
+
+    .process {
+      background:
+        linear-gradient(180deg, rgba(3,8,12,.98), rgba(3,8,12,.94)),
+        radial-gradient(circle at 18% 20%, rgba(244,37,31,.18), transparent 26rem),
+        radial-gradient(circle at 88% 64%, rgba(28,121,255,.16), transparent 30rem);
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+
+    .process-layout {
+      display: grid;
+      grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr);
+      gap: 52px;
+      align-items: start;
+    }
+
+    .process-copy h2 {
+      margin-top: 12px;
+      font-size: clamp(46px, 5.2vw, 82px);
+      line-height: .92;
+    }
+
+    .process-copy p {
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.58;
+    }
+
+    .process-grid {
+      display: grid;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 24px;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-step:last-child { border-bottom: 0; }
+
+    .process-step span {
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-size: 44px;
+      line-height: .9;
+    }
+
+    .process-step h3 {
+      font-size: clamp(25px, 2.4vw, 38px);
+      line-height: .96;
+    }
+
+    .process-step p {
+      max-width: 560px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.52;
     }
 
     .contact {
@@ -637,6 +809,45 @@
       background: var(--red);
       color: var(--ink);
       box-shadow: none;
+    }
+
+    .contact-options {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .contact-option {
+      min-height: 122px;
+      padding: 18px;
+      border: 1px solid rgba(16,18,20,.22);
+      color: var(--black);
+      background: rgba(255,255,255,.25);
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .contact-option:hover,
+    .contact-option:focus-visible {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.42);
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .contact-option strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 21px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .contact-option span {
+      display: block;
+      margin-top: 10px;
+      color: rgba(16,18,20,.78);
+      line-height: 1.38;
     }
 
     .contact-list {
@@ -711,8 +922,18 @@
       .hero-copy { margin-left: 0; }
       .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .service { border-bottom: 1px solid var(--line); }
+      .proof-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .proof-item:nth-child(2) {
+        border-right: 0;
+      }
+      .proof-item:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+      }
       .story-layout,
       .package-layout,
+      .process-layout,
       .contact-layout {
         grid-template-columns: 1fr;
       }
@@ -735,7 +956,7 @@
       }
 
       .hero-stage {
-        min-height: calc(100svh + 640px);
+        min-height: 86svh;
       }
 
       .nav {
@@ -859,6 +1080,34 @@
         gap: 44px;
       }
 
+      .proof-strip {
+        padding: 82px 16px 34px;
+      }
+
+      .proof-grid,
+      .contact-options {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-item {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .proof-item:last-child {
+        border-bottom: 0;
+      }
+
+      .process-step {
+        grid-template-columns: 56px 1fr;
+        gap: 16px;
+      }
+
+      .process-step span {
+        font-size: 34px;
+      }
+
       footer .inner {
         flex-direction: column;
       }
@@ -937,7 +1186,7 @@
     <a class="brand" href="#top" aria-label="Pop Media">
       <span class="mark" aria-hidden="true">POP<br>MEDIA</span>
       <span class="brand-line" aria-hidden="true"></span>
-      <span class="brand-note">Radio. Podcasts. Evenimente. Comunitate. Români în Belgia.</span>
+      <span class="brand-note">Radio. Podcasts. Evenimente. Promovare locală. Români în Belgia.</span>
     </a>
     <div class="links" aria-label="Secțiuni">
       <a href="#top">Acasă</a>
@@ -947,7 +1196,7 @@
       <a href="#sponsori">Sponsori</a>
       <a href="#contact">Contact</a>
     </div>
-    <a class="button nav-cta" href="#contact">Colaborează</a>
+    <a class="button nav-cta" href="mailto:contact@popmedia.be?subject=Promovare%20Pop%20Media">Vreau promovare</a>
   </nav>
 
   <main id="top">
@@ -956,10 +1205,10 @@
         <div class="hero-inner">
           <div class="hero-copy">
             <h1>Vocea românilor în Belgia</h1>
-            <p>Pop Media este radio, podcasturi, evenimente și comunitate. Conectăm oameni, susținem afaceri și promovăm valorile noastre în inima Europei.</p>
+            <p>Radio și comunitate pentru românii din Belgia. Promovare locală pentru afaceri care vor să fie cunoscute.</p>
             <div class="hero-actions">
-              <a class="button primary" href="mailto:contact@popmedia.be?subject=Ascult%20Pop%20Media%20live">Ascultă live <span class="live-dot" aria-hidden="true"></span></a>
-              <a class="button" href="#contact">Colaborează cu noi</a>
+              <a class="button primary" href="mailto:contact@popmedia.be?subject=Vreau%20promovare%20Pop%20Media">Vreau promovare</a>
+              <a class="button" href="#radio">Ascultă Radio Belgia <span class="live-dot" aria-hidden="true"></span></a>
             </div>
           </div>
         </div>
@@ -985,9 +1234,34 @@
       </section>
     </div>
 
+    <section class="proof-strip" aria-label="Pop Media pe scurt">
+      <div class="inner proof-grid">
+        <div class="proof-item">
+          <span>Pentru comunitate</span>
+          <strong>Români în Belgia</strong>
+          <p>Un punct de întâlnire media pentru oameni, povești și evenimente locale.</p>
+        </div>
+        <div class="proof-item">
+          <span>Canale</span>
+          <strong>Radio + podcast + evenimente</strong>
+          <p>Conținut audio, interviuri și prezență la momentele importante ale comunității.</p>
+        </div>
+        <div class="proof-item">
+          <span>Pentru afaceri</span>
+          <strong>Promovare locală</strong>
+          <p>Mesaje clare pentru branduri care vor să fie văzute de publicul potrivit.</p>
+        </div>
+        <div class="proof-item">
+          <span>Fără pași inutili</span>
+          <strong>Contact direct</strong>
+          <p>Fără conturi sau formulare ascunse: alegi direcția și ne scrii direct.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="radio" aria-labelledby="services-title">
       <div class="inner">
-        <h2 id="services-title" class="section-title">Ce facem <span class="underline">pentru tine</span></h2>
+        <h2 id="services-title" class="section-title">Un ecosistem media <span class="underline">ușor de înțeles</span></h2>
         <div class="services">
           <article class="service" style="--accent: var(--red)">
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 20v-7m0 0 5 7m-5-7-5 7m5-15v2m-6 6a6 6 0 1 1 12 0m-15 0a9 9 0 1 1 18 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1046,43 +1320,93 @@
     <section id="sponsori" class="packages" aria-labelledby="sponsors-title">
       <div class="inner package-layout">
         <div class="packages-copy">
-          <h2 id="sponsors-title">Susținem afacerile care construiesc <span class="yellow">comunitatea</span></h2>
-          <p>Pachete de promovare flexibile pentru afacerea ta. Alegem împreună ce se potrivește obiectivelor tale.</p>
-          <div class="hero-actions"><a class="button" href="#contact">Vezi pachetele +</a></div>
+          <h2 id="sponsors-title">Promovare pentru afaceri care vor să fie <span class="yellow">recunoscute</span></h2>
+          <p>Nu vindem doar spațiu media. Construim mesaje clare pentru antreprenori, organizatori și servicii care vor să ajungă la românii din Belgia.</p>
+          <ul class="verticals" aria-label="Domenii potrivite pentru promovare">
+            <li>Restaurante</li>
+            <li>Construcții</li>
+            <li>Transport</li>
+            <li>Contabilitate</li>
+            <li>Juridic</li>
+            <li>Magazine românești</li>
+            <li>Evenimente</li>
+            <li>Servicii pentru nou-veniți</li>
+          </ul>
+          <div class="hero-actions"><a class="button" href="mailto:contact@popmedia.be?subject=Solicit%20media%20kit%20Pop%20Media">Solicită media kit +</a></div>
         </div>
         <div class="package-grid">
           <article class="package" style="--accent: var(--red)">
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4V7Zm2 3h8m-8 4h4m8-4h.01m0 4h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <h3>Basic</h3>
-            <p>Prezență locală</p>
+            <h3>Vizibilitate locală</h3>
+            <p>Prezență clară</p>
             <ul class="checks">
-              <li>Spoturi radio</li>
-              <li>Menționare în emisiuni</li>
+              <li>Menționări radio</li>
+              <li>Mesaj adaptat publicului</li>
               <li>Postare social media</li>
-              <li>Raportare lunară</li>
+              <li>Recap lunar simplu</li>
             </ul>
           </article>
           <article class="package" style="--accent: var(--yellow)">
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4Zm0 0v5m-4 0h8m-10-9a6 6 0 0 0 12 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <h3>Plus</h3>
-            <p>Vizibilitate extinsă</p>
+            <h3>Interviu + conținut</h3>
+            <p>Voce și poveste</p>
             <ul class="checks">
-              <li>Spoturi radio premium</li>
+              <li>Prezență radio premium</li>
               <li>Interviu în emisiune</li>
-              <li>Postări social media</li>
-              <li>Promovare evenimente</li>
+              <li>Clipuri sociale scurte</li>
+              <li>Promovare pentru evenimente</li>
             </ul>
           </article>
           <article class="package" style="--accent: var(--blue)">
             <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m12 3 8 6-8 12L4 9l8-6Zm-8 6h16M8 9l4 12 4-12M8 9l4-6 4 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <h3>Premium</h3>
-            <p>Parteneriat strategic</p>
+            <h3>Partener de comunitate</h3>
+            <p>Campanie integrată</p>
             <ul class="checks">
               <li>Campanii radio dedicate</li>
               <li>Podcast sponsorizat</li>
-              <li>Conținut personalizat</li>
-              <li>Raportare și analiză</li>
+              <li>Prezență la evenimente</li>
+              <li>Recap și recomandări</li>
             </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" aria-labelledby="process-title">
+      <div class="inner process-layout">
+        <div class="process-copy">
+          <span class="eyebrow">Cum lucrăm</span>
+          <h2 id="process-title">De la idee la mesaj public</h2>
+          <p>Totul poate rămâne static și simplu: discutăm obiectivul, pregătim mesajul, îl difuzăm pe canalele potrivite și trimitem un recap clar.</p>
+        </div>
+        <div class="process-grid">
+          <article class="process-step" style="--accent: var(--red)">
+            <span>01</span>
+            <div>
+              <h3>Clarificăm obiectivul</h3>
+              <p>Vrei vizibilitate, participanți la eveniment, o poveste de brand sau contact direct? Alegem direcția înainte să producem ceva.</p>
+            </div>
+          </article>
+          <article class="process-step" style="--accent: var(--yellow)">
+            <span>02</span>
+            <div>
+              <h3>Construim mesajul</h3>
+              <p>Transformăm oferta într-un text și un format potrivit pentru radio, social, podcast sau eveniment.</p>
+            </div>
+          </article>
+          <article class="process-step" style="--accent: var(--blue)">
+            <span>03</span>
+            <div>
+              <h3>Publicăm pe canale</h3>
+              <p>Mesajul ajunge în locul potrivit: emisiune, postare, interviu, mențiune sau prezență la eveniment.</p>
+            </div>
+          </article>
+          <article class="process-step" style="--accent: var(--red)">
+            <span>04</span>
+            <div>
+              <h3>Trimitem recap</h3>
+              <p>Primești ce s-a publicat și ce poate fi îmbunătățit data viitoare, fără promisiuni umflate.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -1092,8 +1416,22 @@
       <div class="inner contact-layout">
         <div class="contact-copy">
           <h2 id="contact-title">Hai să creăm <span class="red">ceva împreună</span></h2>
-          <p>Ai un proiect, o idee sau vrei să-ți promovezi afacerea? Hai să vorbim și să găsim cea mai bună soluție pentru tine.</p>
+          <p>Ai o afacere, un eveniment sau o poveste care merită auzită? Scrie-ne cu direcția potrivită și pregătim un răspuns clar.</p>
           <div class="hero-actions"><a class="button primary" href="mailto:contact@popmedia.be?subject=Contact%20Pop%20Media">Contactează-ne</a></div>
+          <div class="contact-options" aria-label="Alege motivul contactului">
+            <a class="contact-option" href="mailto:contact@popmedia.be?subject=Vreau%20promovare%20Pop%20Media">
+              <strong>Promovare</strong>
+              <span>Radio, social media, podcast sau prezență la evenimente.</span>
+            </a>
+            <a class="contact-option" href="mailto:contact@popmedia.be?subject=Propun%20interviu%20Pop%20Media">
+              <strong>Interviu</strong>
+              <span>Poveste de comunitate, antreprenor, artist sau inițiativă locală.</span>
+            </a>
+            <a class="contact-option" href="mailto:contact@popmedia.be?subject=Eveniment%20Pop%20Media">
+              <strong>Eveniment</strong>
+              <span>Promovare, prezență media sau parteneriat pentru comunitate.</span>
+            </a>
+          </div>
         </div>
         <ul class="contact-list">
           <li>
@@ -1119,8 +1457,8 @@
 
   <footer>
     <div class="inner">
-      <span>Pop Media - homepage reconstruit ca site real</span>
-      <span>Static demo, fără backend sau integrare live.</span>
+      <span>Pop Media - radio, comunitate și promovare în Belgia</span>
+      <span>Versiune de prezentare cu contact direct.</span>
     </div>
   </footer>
 

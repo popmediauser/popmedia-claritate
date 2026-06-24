@@ -1,0 +1,72 @@
+[
+  {
+    "viewport": {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    "consoleErrors": [],
+    "data": {
+      "title": "Pop Media - Radio, comunitate și promovare pentru românii din Belgia",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "hasHorizontalOverflow": false,
+      "heroHeight": 860,
+      "proofTop": 880,
+      "firstViewportHasNextSectionHint": true,
+      "contactOptions": [
+        {
+          "text": "Promovare Radio, social media, podcast sau prezență la evenimente.",
+          "width": 201,
+          "height": 157
+        },
+        {
+          "text": "Interviu Poveste de comunitate, antreprenor, artist sau inițiativă locală.",
+          "width": 201,
+          "height": 157
+        },
+        {
+          "text": "Eveniment Promovare, prezență media sau parteneriat pentru comunitate.",
+          "width": 201,
+          "height": 157
+        }
+      ],
+      "overflowCandidates": []
+    }
+  },
+  {
+    "viewport": {
+      "name": "mobile",
+      "width": 430,
+      "height": 932
+    },
+    "consoleErrors": [],
+    "data": {
+      "title": "Pop Media - Radio, comunitate și promovare pentru românii din Belgia",
+      "width": 430,
+      "scrollWidth": 430,
+      "hasHorizontalOverflow": false,
+      "heroHeight": 783,
+      "proofTop": 802,
+      "firstViewportHasNextSectionHint": true,
+      "contactOptions": [
+        {
+          "text": "Promovare Radio, social media, podcast sau prezență la evenimente.",
+          "width": 398,
+          "height": 122
+        },
+        {
+          "text": "Interviu Poveste de comunitate, antreprenor, artist sau inițiativă locală.",
+          "width": 398,
+          "height": 122
+        },
+        {
+          "text": "Eveniment Promovare, prezență media sau parteneriat pentru comunitate.",
+          "width": 398,
+          "height": 122
+        }
+      ],
+      "overflowCandidates": []
+    }
+  }
+]
