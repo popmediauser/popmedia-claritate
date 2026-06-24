@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://popmedia-homepage.vercel.app/sitemap.xml
