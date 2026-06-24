@@ -1,0 +1,1150 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pop Media - Vocea românilor în Belgia</title>
+  <meta name="description" content="Homepage Pop Media pentru radio, podcasturi, evenimente, sponsori și comunitatea românilor din Belgia.">
+  <style>
+    :root {
+      --bg: #03080c;
+      --bg-soft: #071017;
+      --ink: #fff8eb;
+      --muted: rgba(255, 248, 235, .73);
+      --line: rgba(255, 255, 255, .16);
+      --red: #f4251f;
+      --yellow: #ffc52d;
+      --blue: #1c79ff;
+      --paper: #e8dfd1;
+      --black: #101214;
+      --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", "Roboto Condensed", "Arial Narrow", sans-serif;
+      --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --max: 1210px;
+      --progress: 0;
+      --wave-progress: .12;
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: var(--font-ui);
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      height: 4px;
+      overflow: hidden;
+      pointer-events: none;
+      background: transparent;
+    }
+
+    .progress::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--red), var(--yellow), var(--blue));
+      box-shadow: 0 0 14px rgba(255,197,45,.32);
+      transform: translateZ(0) scaleX(var(--progress));
+      transform-origin: left center;
+      will-change: transform;
+    }
+
+    .nav {
+      position: fixed;
+      z-index: 50;
+      top: 22px;
+      left: max(20px, calc((100vw - var(--max)) / 2));
+      right: max(20px, calc((100vw - var(--max)) / 2));
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 28px;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .brand,
+    .links,
+    .nav-cta { pointer-events: auto; }
+
+    .brand {
+      display: grid;
+      grid-template-columns: auto 1px minmax(0, 150px);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .mark {
+      position: relative;
+      width: 92px;
+      min-height: 58px;
+      display: grid;
+      align-content: center;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 30px;
+      line-height: .78;
+      text-transform: uppercase;
+      text-shadow: 0 2px 16px rgba(0,0,0,.76);
+    }
+
+    .mark::after {
+      content: "";
+      position: absolute;
+      top: 11px;
+      left: 43px;
+      width: 26px;
+      height: 26px;
+      background: var(--red);
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+      filter: drop-shadow(0 0 14px rgba(244,37,31,.65));
+    }
+
+    .brand-line {
+      width: 1px;
+      height: 48px;
+      background: rgba(255,255,255,.42);
+    }
+
+    .brand-note {
+      margin: 0;
+      color: rgba(255,248,235,.78);
+      font-family: var(--font-display);
+      font-size: 13px;
+      line-height: 1.16;
+      text-transform: uppercase;
+    }
+
+    .links {
+      justify-self: center;
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.4vw, 34px);
+      color: rgba(255,248,235,.9);
+      font-family: var(--font-display);
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+
+    .links a {
+      position: relative;
+      padding: 10px 0;
+      text-shadow: 0 2px 12px rgba(0,0,0,.8);
+    }
+
+    .links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 3px;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .2s ease;
+    }
+
+    .links a:first-child::after,
+    .links a:hover::after { transform: scaleX(1); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 28px;
+      border: 2px solid rgba(255,255,255,.78);
+      color: var(--ink);
+      background: rgba(5, 10, 14, .58);
+      font-family: var(--font-display);
+      font-size: 18px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--yellow);
+      outline: none;
+    }
+
+    .button.primary,
+    .nav-cta {
+      border-color: var(--red);
+      background: var(--red);
+      box-shadow: 18px -14px 0 rgba(244,37,31,.2);
+    }
+
+    .hero-stage {
+      position: relative;
+      min-height: calc(100svh + clamp(420px, 48vh, 620px));
+      background: var(--bg);
+      z-index: 1;
+    }
+
+    .hero {
+      position: sticky;
+      top: 0;
+      height: min(100svh, 860px);
+      min-height: 680px;
+      display: grid;
+      align-items: start;
+      overflow: visible;
+      isolation: isolate;
+      background: var(--bg);
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background-image: url("assets/popmedia-hero-background.png");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(3,8,12,.96) 0%, rgba(3,8,12,.54) 40%, rgba(3,8,12,.16) 74%, rgba(3,8,12,.72) 100%),
+        linear-gradient(180deg, rgba(3,8,12,.22) 0%, rgba(3,8,12,.1) 50%, var(--bg) 100%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: clamp(118px, 13vh, 148px) 0 48px;
+    }
+
+    .hero-copy {
+      width: min(690px, 100%);
+      margin-left: clamp(110px, 13vw, 185px);
+      transform: translateY(calc(var(--wave-progress) * -20px));
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: clamp(70px, 7.6vw, 118px);
+      line-height: .89;
+      max-width: 720px;
+      text-shadow: 0 4px 22px rgba(0,0,0,.62);
+    }
+
+    .hero-copy p {
+      max-width: 475px;
+      margin: 28px 0 0;
+      color: rgba(255,248,235,.88);
+      font-size: 19px;
+      line-height: 1.55;
+      font-weight: 650;
+      text-shadow: 0 2px 14px rgba(0,0,0,.78);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .live-dot {
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      margin-left: 10px;
+      border: 2px solid currentColor;
+      border-radius: 999px;
+    }
+
+    .live-dot::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: inherit;
+      background: currentColor;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(.8); opacity: .45; }
+      50% { transform: scale(1.25); opacity: 1; }
+    }
+
+    .hero-wave {
+      position: absolute;
+      z-index: 1;
+      left: -14vw;
+      right: auto;
+      bottom: -92px;
+      width: calc(100% + 28vw);
+      max-width: none;
+      height: clamp(190px, 24vw, 310px);
+      pointer-events: none;
+      filter: drop-shadow(0 0 22px rgba(255,197,45,.72));
+      opacity: .92;
+      transform: translateY(calc(var(--wave-progress) * -86px));
+      clip-path: inset(0 calc((1 - var(--wave-progress)) * 100%) 0 0);
+    }
+
+    .down {
+      position: absolute;
+      z-index: 4;
+      left: 54%;
+      bottom: 16px;
+      width: 38px;
+      height: 38px;
+      transform: translateX(-50%);
+      color: rgba(255,248,235,.9);
+    }
+
+    section {
+      position: relative;
+      padding: clamp(72px, 8vw, 118px) 20px;
+      background: var(--bg);
+    }
+
+    .hero-stage + section {
+      padding-top: clamp(112px, 11vw, 150px);
+    }
+
+    .inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      margin-bottom: 52px;
+      text-align: center;
+      font-size: clamp(44px, 5.3vw, 78px);
+      line-height: .95;
+    }
+
+    .underline {
+      position: relative;
+      display: inline-block;
+    }
+
+    .underline::after {
+      content: "";
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      bottom: -12px;
+      height: 5px;
+      background: var(--red);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(244,37,31,.04), rgba(255,197,45,.035), rgba(28,121,255,.045)),
+        rgba(255,255,255,.015);
+    }
+
+    .service {
+      min-height: 240px;
+      padding: 34px 20px;
+      text-align: center;
+      border-right: 1px solid var(--line);
+    }
+
+    .service:last-child { border-right: 0; }
+
+    .icon {
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 24px;
+      color: var(--accent);
+      filter: drop-shadow(0 0 14px color-mix(in srgb, var(--accent) 45%, transparent));
+    }
+
+    .icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .service h3 {
+      font-size: 31px;
+      line-height: 1;
+    }
+
+    .service p {
+      max-width: 170px;
+      margin: 14px auto 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .stories {
+      border-top: 1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at 85% 20%, rgba(28,121,255,.11), transparent 30rem),
+        radial-gradient(circle at 18% 52%, rgba(244,37,31,.1), transparent 28rem),
+        #050b10;
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: minmax(285px, .86fr) repeat(3, minmax(0, 1fr));
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .story-copy {
+      align-self: center;
+    }
+
+    .story-copy h2,
+    .packages-copy h2,
+    .contact-copy h2 {
+      font-size: clamp(48px, 5vw, 78px);
+      line-height: .95;
+    }
+
+    .story-copy h2 {
+      font-size: clamp(40px, 3.45vw, 50px);
+    }
+
+    .story-copy .red {
+      display: block;
+    }
+
+    .red { color: var(--red); }
+    .yellow { color: var(--yellow); }
+
+    .story-copy p,
+    .packages-copy p,
+    .contact-copy p {
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.58;
+    }
+
+    .story-card {
+      position: relative;
+      min-height: 430px;
+      display: grid;
+      align-content: end;
+      padding: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(12,19,25,.72);
+      box-shadow: 0 25px 80px rgba(0,0,0,.38);
+    }
+
+    .story-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(3,8,12,.04) 0%, rgba(3,8,12,.14) 38%, rgba(3,8,12,.9) 100%),
+        var(--visual);
+      background-size: cover;
+      background-position: center;
+      opacity: .96;
+    }
+
+    .story-card::after {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      top: 52%;
+      height: 82px;
+      background: var(--accent);
+      clip-path: polygon(0 52%, 8% 38%, 18% 58%, 28% 35%, 40% 56%, 51% 42%, 62% 63%, 73% 39%, 84% 58%, 100% 44%, 100% 62%, 84% 76%, 73% 58%, 62% 79%, 51% 60%, 40% 74%, 28% 53%, 18% 76%, 8% 56%, 0 70%);
+      filter: blur(.2px) drop-shadow(0 0 15px var(--accent));
+      opacity: .86;
+    }
+
+    .story-card h3,
+    .story-card p,
+    .story-card a {
+      position: relative;
+      z-index: 2;
+    }
+
+    .story-card h3 {
+      font-size: 36px;
+    }
+
+    .story-card p {
+      max-width: 230px;
+      margin: 10px 0 0;
+      color: rgba(255,248,235,.86);
+      line-height: 1.5;
+    }
+
+    .story-card a {
+      margin-top: 22px;
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    .packages {
+      background:
+        linear-gradient(90deg, rgba(3,8,12,.96) 0%, rgba(3,8,12,.92) 56%, rgba(3,8,12,.72) 100%),
+        url("assets/popmedia-hero-background.png");
+      background-size: cover;
+      background-position: center bottom;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .package-layout {
+      display: grid;
+      grid-template-columns: .88fr 1.55fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      border-left: 1px solid var(--line);
+    }
+
+    .package {
+      min-height: 355px;
+      padding: 30px 28px;
+      border-right: 1px solid var(--line);
+    }
+
+    .package .icon {
+      margin: 0 0 30px;
+    }
+
+    .package h3 {
+      font-size: 42px;
+    }
+
+    .package p {
+      margin: 6px 0 24px;
+      color: var(--muted);
+    }
+
+    .checks {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: rgba(255,248,235,.86);
+      line-height: 1.35;
+    }
+
+    .checks li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .checks li::before {
+      content: "";
+      width: 11px;
+      height: 7px;
+      margin-top: 6px;
+      border-left: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg);
+    }
+
+    .contact {
+      color: var(--black);
+      background:
+        linear-gradient(180deg, rgba(232,223,209,.96), rgba(232,223,209,.96)),
+        url("assets/popmedia-hero-background.png");
+      background-size: cover;
+      background-position: bottom center;
+    }
+
+    .contact::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 90px;
+      background: linear-gradient(90deg, rgba(244,37,31,.45), rgba(255,197,45,.45), rgba(28,121,255,.45));
+      clip-path: polygon(0 78%, 22% 56%, 43% 82%, 67% 50%, 100% 72%, 100% 100%, 0 100%);
+      opacity: .65;
+      pointer-events: none;
+    }
+
+    .contact-layout {
+      min-height: 470px;
+      display: grid;
+      grid-template-columns: 1fr minmax(320px, .8fr);
+      gap: 80px;
+      align-items: center;
+    }
+
+    .contact-copy p {
+      color: rgba(16,18,20,.76);
+    }
+
+    .contact .button {
+      border-color: var(--red);
+      background: var(--red);
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-list li {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .contact-list .icon {
+      width: 44px;
+      height: 44px;
+      margin: 0;
+      color: var(--black);
+      filter: none;
+    }
+
+    .contact-list strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 19px;
+      text-transform: uppercase;
+    }
+
+    .contact-list span,
+    .contact-list a {
+      display: block;
+      margin-top: 4px;
+      color: rgba(16,18,20,.86);
+      font-size: 18px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 13px;
+      margin-top: 8px;
+      font-family: var(--font-display);
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    footer {
+      padding: 26px 20px;
+      background: #020508;
+      color: rgba(255,248,235,.6);
+      font-size: 14px;
+    }
+
+    footer .inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 1080px) {
+      .nav {
+        grid-template-columns: auto auto;
+      }
+
+      .links { display: none; }
+      .brand-note,
+      .brand-line { display: none; }
+      .brand { grid-template-columns: auto; }
+      .hero-copy { margin-left: 0; }
+      .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service { border-bottom: 1px solid var(--line); }
+      .story-layout,
+      .package-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+      .package-grid {
+        grid-template-columns: 1fr;
+        border-left: 0;
+      }
+      .package {
+        min-height: auto;
+        border-right: 0;
+        border-top: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .progress {
+        position: fixed;
+        top: 0;
+        height: 5px;
+      }
+
+      .hero-stage {
+        min-height: calc(100svh + 640px);
+      }
+
+      .nav {
+        top: 12px;
+        left: 16px;
+        right: 16px;
+        grid-template-columns: auto 1fr;
+        gap: 12px;
+      }
+
+      .mark {
+        width: 76px;
+        min-height: 48px;
+        font-size: 25px;
+      }
+
+      .mark::after {
+        top: 9px;
+        left: 35px;
+        width: 22px;
+        height: 22px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero {
+        height: auto;
+        min-height: 84svh;
+        align-items: center;
+      }
+
+      .hero::before {
+        background-position: 47% center;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(180deg, rgba(3,8,12,.44) 0%, rgba(3,8,12,.48) 34%, rgba(3,8,12,.96) 100%),
+          linear-gradient(90deg, rgba(3,8,12,.92), rgba(3,8,12,.32), rgba(3,8,12,.88));
+      }
+
+      .hero-inner {
+        width: calc(100% - 32px);
+        padding: 104px 0 72px;
+      }
+
+      h1 {
+        max-width: 340px;
+        font-size: clamp(56px, 16vw, 76px);
+      }
+
+      .hero-copy p {
+        max-width: 330px;
+        font-size: 16px;
+      }
+
+      .hero-actions {
+        display: grid;
+        gap: 12px;
+      }
+
+      .button {
+        width: 100%;
+        min-height: 52px;
+        font-size: 16px;
+      }
+
+      .hero-wave {
+        left: 0;
+        width: 100%;
+        height: 180px;
+        bottom: -34px;
+        opacity: .86;
+        filter: drop-shadow(0 0 18px rgba(255,197,45,.56));
+        transform: none;
+      }
+
+      .hero-wave path:first-child {
+        stroke-width: 18px;
+      }
+
+      .hero-wave path:nth-child(2) {
+        stroke-width: 7px;
+        opacity: .68;
+      }
+
+      .down {
+        left: 50%;
+        bottom: 22px;
+      }
+
+      section {
+        padding: 64px 16px;
+      }
+
+      .hero-stage + section {
+        padding-top: 76px;
+      }
+
+      .section-title {
+        text-align: left;
+        font-size: 43px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .service {
+        min-height: 205px;
+        border-right: 0;
+      }
+
+      .story-card {
+        min-height: 360px;
+      }
+
+      .contact-layout {
+        gap: 44px;
+      }
+
+      footer .inner {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-height: 760px) and (min-width: 760px) {
+      .hero {
+        height: 100svh;
+        min-height: 620px;
+      }
+
+      .hero-inner {
+        padding-top: clamp(96px, 14vh, 118px);
+        padding-bottom: 34px;
+      }
+
+      .hero-copy {
+        width: min(760px, 100%);
+        margin-left: clamp(118px, 18vw, 360px);
+      }
+
+      h1 {
+        max-width: 720px;
+        font-size: clamp(68px, 6vw, 88px);
+        line-height: .88;
+      }
+
+      .hero-copy p {
+        max-width: 630px;
+        margin-top: 18px;
+        font-size: 18px;
+        line-height: 1.42;
+      }
+
+      .hero-actions {
+        gap: 16px;
+        margin-top: 22px;
+      }
+
+      .button {
+        min-height: 52px;
+        padding: 0 24px;
+        font-size: 16px;
+      }
+
+      .hero-wave {
+        bottom: -92px;
+        height: 230px;
+        opacity: .96;
+      }
+
+      .down {
+        left: 54%;
+        bottom: -24px;
+      }
+
+      .hero-stage + section {
+        padding-top: 126px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 1ms !important;
+        transition-duration: 1ms !important;
+      }
+      .hero-copy { transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="nav" aria-label="Navigație principală">
+    <a class="brand" href="#top" aria-label="Pop Media">
+      <span class="mark" aria-hidden="true">POP<br>MEDIA</span>
+      <span class="brand-line" aria-hidden="true"></span>
+      <span class="brand-note">Radio. Podcasts. Evenimente. Comunitate. Români în Belgia.</span>
+    </a>
+    <div class="links" aria-label="Secțiuni">
+      <a href="#top">Acasă</a>
+      <a href="#radio">Radio</a>
+      <a href="#podcasts">Podcasts</a>
+      <a href="#evenimente">Evenimente</a>
+      <a href="#sponsori">Sponsori</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="button nav-cta" href="#contact">Colaborează</a>
+  </nav>
+
+  <main id="top">
+    <div class="hero-stage" id="hero-stage">
+      <section class="hero" aria-label="Pop Media">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <h1>Vocea românilor în Belgia</h1>
+            <p>Pop Media este radio, podcasturi, evenimente și comunitate. Conectăm oameni, susținem afaceri și promovăm valorile noastre în inima Europei.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="mailto:contact@popmedia.be?subject=Ascult%20Pop%20Media%20live">Ascultă live <span class="live-dot" aria-hidden="true"></span></a>
+              <a class="button" href="#contact">Colaborează cu noi</a>
+            </div>
+          </div>
+        </div>
+        <svg class="hero-wave" viewBox="0 0 2800 320" preserveAspectRatio="none" fill="none" aria-hidden="true">
+          <path pathLength="1" d="M-80 190 C 250 54 455 270 720 154 C 968 44 1138 218 1370 170 C 1580 126 1748 50 1970 142 C 2204 238 2398 72 2880 142" stroke="var(--red)" stroke-width="20" stroke-linecap="round"/>
+          <path pathLength="1" d="M-64 218 C 238 118 482 274 742 184 C 1010 82 1185 242 1420 194 C 1652 150 1810 86 2026 180 C 2240 260 2462 128 2860 180" stroke="rgba(244, 37, 31, .68)" stroke-width="8" stroke-linecap="round" opacity=".75"/>
+          <defs>
+            <linearGradient id="heroWave" x1="0" y1="0" x2="1500" y2="0">
+              <stop stop-color="#f4251f"/>
+              <stop offset=".52" stop-color="#ffc52d"/>
+              <stop offset="1" stop-color="#1c79ff"/>
+            </linearGradient>
+            <linearGradient id="heroWaveSoft" x1="0" y1="0" x2="1500" y2="0">
+              <stop stop-color="#f4251f"/>
+              <stop offset=".52" stop-color="#ffc52d"/>
+              <stop offset="1" stop-color="#1c79ff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <svg class="down" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="m5 9 7 7 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </section>
+    </div>
+
+    <section id="radio" aria-labelledby="services-title">
+      <div class="inner">
+        <h2 id="services-title" class="section-title">Ce facem <span class="underline">pentru tine</span></h2>
+        <div class="services">
+          <article class="service" style="--accent: var(--red)">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 20v-7m0 0 5 7m-5-7-5 7m5-15v2m-6 6a6 6 0 1 1 12 0m-15 0a9 9 0 1 1 18 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Radio</h3>
+            <p>Muzică, știri și povești care ne apropie. 24/7, de oriunde te-ai afla.</p>
+          </article>
+          <article id="podcasts" class="service" style="--accent: var(--yellow)">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4Zm0 0v5m-4 0h8m-10-9a6 6 0 0 0 12 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Podcasts</h3>
+            <p>Idei, experiențe și interviuri relevante pentru comunitate și afaceri.</p>
+          </article>
+          <article id="evenimente" class="service" style="--accent: var(--blue)">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3v4m10-4v4M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Zm4 8h2m4 0h2m-8 4h2m4 0h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Evenimente</h3>
+            <p>Organizăm și promovăm evenimente care creează conexiuni și oportunități.</p>
+          </article>
+          <article class="service" style="--accent: var(--yellow)">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 13h3l9 4V7L7 11H4v2Zm12-5 3-2v12l-3-2M7 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Promovare</h3>
+            <p>Dăm voce brandului tău prin radio, social media și conținut dedicat.</p>
+          </article>
+          <article class="service" style="--accent: var(--red)">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3 20a5 5 0 0 1 10 0m-2.5-2.5A5 5 0 0 1 21 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Comunitate</h3>
+            <p>Suntem împreună, ne susținem și creștem împreună.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stories" aria-labelledby="stories-title">
+      <div class="inner story-layout">
+        <div class="story-copy">
+          <h2 id="stories-title">Povești<br>care <span class="red">ne<br>conectează</span></h2>
+          <p>De la emisiuni care inspiră, la podcasturi care aduc perspectivă și evenimente care ne aduc față în față.</p>
+          <div class="hero-actions"><a class="button" href="#contact">Descoperă conținutul</a></div>
+        </div>
+        <article class="story-card" style="--accent: var(--red); --visual: url('assets/card-radio-live.png')">
+          <h3>Radio live</h3>
+          <p>Muzică bună și informație de încredere, zi de zi.</p>
+          <a href="mailto:contact@popmedia.be?subject=Radio%20live%20Pop%20Media">Ascultă live →</a>
+        </article>
+        <article class="story-card" style="--accent: var(--yellow); --visual: url('assets/card-podcasts.png')">
+          <h3>Podcasts</h3>
+          <p>Discuții autentice despre viață, afaceri, cultură și comunitate.</p>
+          <a href="mailto:contact@popmedia.be?subject=Podcasturi%20Pop%20Media">Vezi podcasts →</a>
+        </article>
+        <article class="story-card" style="--accent: var(--blue); --visual: url('assets/card-evenimente.png')">
+          <h3>Evenimente</h3>
+          <p>Festivaluri, târguri, întâlniri și momente memorabile.</p>
+          <a href="mailto:contact@popmedia.be?subject=Evenimente%20Pop%20Media">Vezi evenimente →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="sponsori" class="packages" aria-labelledby="sponsors-title">
+      <div class="inner package-layout">
+        <div class="packages-copy">
+          <h2 id="sponsors-title">Susținem afacerile care construiesc <span class="yellow">comunitatea</span></h2>
+          <p>Pachete de promovare flexibile pentru afacerea ta. Alegem împreună ce se potrivește obiectivelor tale.</p>
+          <div class="hero-actions"><a class="button" href="#contact">Vezi pachetele +</a></div>
+        </div>
+        <div class="package-grid">
+          <article class="package" style="--accent: var(--red)">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4V7Zm2 3h8m-8 4h4m8-4h.01m0 4h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Basic</h3>
+            <p>Prezență locală</p>
+            <ul class="checks">
+              <li>Spoturi radio</li>
+              <li>Menționare în emisiuni</li>
+              <li>Postare social media</li>
+              <li>Raportare lunară</li>
+            </ul>
+          </article>
+          <article class="package" style="--accent: var(--yellow)">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 15a4 4 0 0 0 4-4V6a4 4 0 0 0-8 0v5a4 4 0 0 0 4 4Zm0 0v5m-4 0h8m-10-9a6 6 0 0 0 12 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Plus</h3>
+            <p>Vizibilitate extinsă</p>
+            <ul class="checks">
+              <li>Spoturi radio premium</li>
+              <li>Interviu în emisiune</li>
+              <li>Postări social media</li>
+              <li>Promovare evenimente</li>
+            </ul>
+          </article>
+          <article class="package" style="--accent: var(--blue)">
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m12 3 8 6-8 12L4 9l8-6Zm-8 6h16M8 9l4 12 4-12M8 9l4-6 4 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Premium</h3>
+            <p>Parteneriat strategic</p>
+            <ul class="checks">
+              <li>Campanii radio dedicate</li>
+              <li>Podcast sponsorizat</li>
+              <li>Conținut personalizat</li>
+              <li>Raportare și analiză</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="inner contact-layout">
+        <div class="contact-copy">
+          <h2 id="contact-title">Hai să creăm <span class="red">ceva împreună</span></h2>
+          <p>Ai un proiect, o idee sau vrei să-ți promovezi afacerea? Hai să vorbim și să găsim cea mai bună soluție pentru tine.</p>
+          <div class="hero-actions"><a class="button primary" href="mailto:contact@popmedia.be?subject=Contact%20Pop%20Media">Contactează-ne</a></div>
+        </div>
+        <ul class="contact-list">
+          <li>
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Zm0 1 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Email</strong><a href="mailto:contact@popmedia.be">contact@popmedia.be</a></div>
+          </li>
+          <li>
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 4h4l2 5-3 2a12 12 0 0 0 4 4l2-3 5 2v4c0 1-1 2-2 2A16 16 0 0 1 4 6c0-1 1-2 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Telefon</strong><a href="tel:+32484888888">+32 484 88 88 88</a></div>
+          </li>
+          <li>
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5 7-11a7 7 0 0 0-14 0c0 6 7 11 7 11Zm0-8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Studio</strong><span>Bruxelles, Belgia</span></div>
+          </li>
+          <li>
+            <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m21 3-7 18-4-8-7-4 18-6Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><strong>Urmărește-ne</strong><span class="socials">f ig yt tk</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="inner">
+      <span>Pop Media - homepage reconstruit ca site real</span>
+      <span>Static demo, fără backend sau integrare live.</span>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const heroStage = document.getElementById("hero-stage");
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+    function updateProgress() {
+      const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      root.style.setProperty("--progress", clamp(scrollY / max, 0, 1).toFixed(4));
+
+      if (!heroStage) return;
+
+      const rect = heroStage.getBoundingClientRect();
+      const scrollDistance = Math.max(1, heroStage.offsetHeight - innerHeight);
+      const rawStageProgress = clamp(-rect.top / scrollDistance, 0, 1);
+      const waveStart = matchMedia("(max-width: 640px)").matches ? .03 : .12;
+      const visibleWaveProgress = waveStart + rawStageProgress * (1 - waveStart);
+      root.style.setProperty("--wave-progress", visibleWaveProgress.toFixed(4));
+    }
+    addEventListener("scroll", updateProgress, { passive: true });
+    addEventListener("resize", updateProgress);
+    updateProgress();
+  </script>
+</body>
+</html>
